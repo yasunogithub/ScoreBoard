@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get 'scores/index'
-  resources :scores
+
+  resources :scores do
+    resources :results
+  end
   get 'scores/new'
   root 'scores#index'
 

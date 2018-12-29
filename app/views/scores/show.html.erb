@@ -7,4 +7,32 @@
   <strong>Score:</strong>
   <%= @score.score %>
 </p>
+
+<h2>Scores</h2>
+<% @score.results.each do |result| %>
+  <p>
+    <strong>player:</strong>
+    <%= result.player_name %>
+  </p>
+
+  <p>
+    <strong>score:</strong>
+    <%= result.result_score %>
+  </p>
+<% end %>
+
+<h2>Add a score:</h2>
+<%= form_with(model: [ @score, @score.results.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :player_name %><br>
+    <%= form.text_field :player_name%>
+  </p>
+  <p>
+    <%= form.label :result_score %><br>
+    <%= form.number_field(:result_score, :value => 10)%>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
 <%= link_to 'Home', scores_path %>

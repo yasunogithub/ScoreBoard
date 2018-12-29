@@ -4,8 +4,10 @@
 <%= link_to 'New score', new_score_path %>
 <table>
   <tr>
-    <th>Name</th>
+    <th>Title</th>
     <th>Score</th>
+    <th>優勝者</th>
+    <th>日付</th>
     <th colspan="2"></th>
   </tr>
 
@@ -13,6 +15,8 @@
     <tr>
       <td><%= score.title %></td>
       <td><%= score.score %></td>
+      <td><%= score.player %></td>
+      <td><%= score.created_at %></td>
       <td><%= link_to 'Show', score_path(score) %></td>
       <td><%= link_to 'Edit', edit_score_path(score) %></td>
     </tr>
