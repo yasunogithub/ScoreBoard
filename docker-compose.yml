@@ -1,0 +1,20 @@
+version: '3'
+services:
+  db_score:
+    image: postgres
+    volumes:
+      - postgres_database_score:/var/lib/postgresql/data
+    ports:
+      - "5440:5440"
+  web_score:
+    build: .
+    command: bundle exec rails s -p 3017 -b '0.0.0.0'
+    volumes:
+      - .:/myapp
+    ports:
+      - "3017:3017"
+    depends_on:
+      - db_score
+volumes:
+  postgres_database_score:
+        external: true

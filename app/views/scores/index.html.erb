@@ -1,0 +1,20 @@
+<h1>Scores#index</h1>
+<p>Find me in app/views/scores/index.html.erb</p>
+
+<%= link_to 'New score', new_score_path %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Score</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @scores.each do |score| %>
+    <tr>
+      <td><%= score.title %></td>
+      <td><%= score.score %></td>
+      <td><%= link_to 'Show', score_path(score) %></td>
+      <td><%= link_to 'Edit', edit_score_path(score) %></td>
+    </tr>
+  <% end %>
+</table>
